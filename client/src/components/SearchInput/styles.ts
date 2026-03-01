@@ -1,10 +1,10 @@
-import { type CSSProperties } from 'react'
+import { type CSSProperties } from 'react';
 import InputBase from '@mui/material/InputBase';
 import styled from '@emotion/styled';
 
-export const StyledSearchInput = styled(InputBase)<{ 
-  height: CSSProperties['height'], 
-  width: CSSProperties['width'] 
+export const StyledSearchInput = styled(InputBase)<{
+  height: CSSProperties['height'];
+  width: CSSProperties['width'];
 }>(({ height = 'auto', width = 'auto' }) => {
   return `
     position: relative;
@@ -36,5 +36,5 @@ export const StyledSearchInput = styled(InputBase)<{
       transform: translateY(-50%);
       opacity: 0.4;
     }
-  `
-})
+  `;
+});

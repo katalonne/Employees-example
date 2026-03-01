@@ -15,18 +15,28 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color="white" elevation={0}>
+      <AppBar position='static' color='white' elevation={0}>
         <Toolbar>
-          <Typography variant="h6" color='primary.light' fontWeight={'bold'} component="div" sx={{ flexGrow: 1 }}>
+          <Typography
+            variant='h6'
+            color='primary.light'
+            fontWeight={'bold'}
+            component='div'
+            sx={{ flexGrow: 1 }}
+          >
             {logoText}
           </Typography>
-          <Button variant="outlined">
-            <Typography variant="body2" fontWeight={'bold'} color="primary.light">
+          <Button variant='outlined'>
+            <Typography
+              variant='body2'
+              fontWeight={'bold'}
+              color='primary.light'
+            >
               {logoutText}
             </Typography>
           </Button>
         </Toolbar>
       </AppBar>
     </Box>
-  )
-}
+  );
+};

@@ -1,18 +1,7 @@
-import { 
-  Container,
-  CssBaseline,
-  ThemeProvider,
-} from '@mui/material';
-import { ErrorBoundary } from 'react-error-boundary'
-import { 
-  Navbar,
-  FormDialog,
-  ErrorFallback,
- } from './components';
-import { 
-  CreateSearchFilterBlock, 
-  UsersGridSection 
-} from './features'
+import { Container, CssBaseline, ThemeProvider } from '@mui/material';
+import { ErrorBoundary } from 'react-error-boundary';
+import { Navbar, FormDialog, ErrorFallback } from './components';
+import { CreateSearchFilterBlock, UsersGridSection } from './features';
 import { theme } from './theme';
 import { STATUSES } from './constants';
 import { useUsersPage } from './hooks/useUsersPage';
@@ -36,24 +25,19 @@ function App() {
     <>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <ThemeProvider theme={theme}>
-          <CssBaseline/> {/* Css Reset */}
-          <Navbar 
-            logoText='Employees'
-            logoutText='Log out'
-          />
-          <Container 
+          <CssBaseline /> {/* Css Reset */}
+          <Navbar logoText='Employees' logoutText='Log out' />
+          <Container
             sx={{ bgcolor: '#f5f5f5', minHeight: '100vh', pt: 4 }}
-            maxWidth={false} 
+            maxWidth={false}
           >
-            <Container 
-              disableGutters
-            >
-              <FormDialog 
-                open={isDialogOpen} 
-                onClose={handleDialogClose} 
+            <Container disableGutters>
+              <FormDialog
+                open={isDialogOpen}
+                onClose={handleDialogClose}
                 statuses={STATUSES}
               />
-              <CreateSearchFilterBlock 
+              <CreateSearchFilterBlock
                 onCreateClick={handleDialogOpen}
                 searchValue={searchValue}
                 onSearchChange={handleSearchChange}
@@ -75,7 +59,7 @@ function App() {
         </ThemeProvider>
       </ErrorBoundary>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

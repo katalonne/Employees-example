@@ -23,39 +23,36 @@ export const FormDialog: React.FC<FormDialogProps> = ({
 }) => {
   return (
     <React.Fragment>
-      <Dialog 
-        open={open} 
-        onClose={onClose}
-        fullWidth={true}
-        maxWidth='xs'
-      >
+      <Dialog open={open} onClose={onClose} fullWidth={true} maxWidth='xs'>
         <DialogTitle sx={{ borderBottom: '2px solid rgba(0,0,0,0.08)' }}>
           Create New User
         </DialogTitle>
         <DialogContent>
-          <form onSubmit={() => {}} id="subscription-form">
+          <form onSubmit={() => {}} id='subscription-form'>
             <TextField
               autoFocus
               required
-              margin="dense"
-              id="name"
-              name="name"
-              label="Full Name"
-              type="text"
+              margin='dense'
+              id='name'
+              name='name'
+              label='Full Name'
+              type='text'
               fullWidth
-              variant="standard"
-              color="primary"
+              variant='standard'
+              color='primary'
             />
             <br />
             <br />
-            <FormControl variant="standard" sx={{ minWidth: '100%' }}>
-              <InputLabel id="demo-simple-select-standard-label">Status</InputLabel>
+            <FormControl variant='standard' sx={{ minWidth: '100%' }}>
+              <InputLabel id='demo-simple-select-standard-label'>
+                Status
+              </InputLabel>
               <Select
-                labelId="demo-simple-select-standard-label"
-                id="demo-simple-select-standard"
-                value={""}
+                labelId='demo-simple-select-standard-label'
+                id='demo-simple-select-standard'
+                value={''}
                 onChange={() => {}}
-                label="Age"
+                label='Age'
               >
                 {statuses.map((option: string) => (
                   <MenuItem key={option} value={option}>
@@ -66,8 +63,10 @@ export const FormDialog: React.FC<FormDialogProps> = ({
             </FormControl>
           </form>
         </DialogContent>
-        <DialogActions sx={{ justifyContent: 'flex-start', padding: '20px 24px' }}>
-          <Button variant="contained" onClick={onClose}>
+        <DialogActions
+          sx={{ justifyContent: 'flex-start', padding: '20px 24px' }}
+        >
+          <Button variant='contained' onClick={onClose}>
             Create
           </Button>
           <Button sx={{ color: '#000' }} onClick={onClose}>
@@ -77,4 +76,4 @@ export const FormDialog: React.FC<FormDialogProps> = ({
       </Dialog>
     </React.Fragment>
   );
-}
+};

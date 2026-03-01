@@ -1,18 +1,16 @@
-import { 
-  type CSSProperties
-} from 'react'
-import { 
-  Select,
-  outlinedInputClasses,
-  selectClasses,
-} from '@mui/material';
+import { type CSSProperties } from 'react';
+import { Select, outlinedInputClasses, selectClasses } from '@mui/material';
 import styled from '@emotion/styled';
 import { type Theme } from '@mui/material/styles';
 import { selectValueToColorMap } from '../../constants';
 
 type CircleValueProp = 'Working' | 'On Vacation' | 'Business Trip';
-export const StyledCircle = styled('div')<{ theme?: Theme ,value: CircleValueProp }>(({ theme, value }) => {
-  const circleColor = selectValueToColorMap[value] || theme.palette.success.main
+export const StyledCircle = styled('div')<{
+  theme?: Theme;
+  value: CircleValueProp;
+}>(({ theme, value }) => {
+  const circleColor =
+    selectValueToColorMap[value] || theme.palette.success.main;
   return `
     position: relative;
     width: 12px;
@@ -30,16 +28,21 @@ export const StyledCircle = styled('div')<{ theme?: Theme ,value: CircleValuePro
       background-color: white;
       border-radius: 50%;
     }
-`
-})
+`;
+});
 
-export const StyledSelect = styled(Select)<{ 
-  theme?: Theme,
-  backgroundcolor: CSSProperties['backgroundColor'] 
-  showborderbottom: string,
-  padding: CSSProperties['padding'],
-  height: CSSProperties['height']
-}>(({ backgroundcolor, showborderbottom, padding = '10px 0px 10px 0px', height = 'auto'}) => {
+export const StyledSelect = styled(Select)<{
+  theme?: Theme;
+  backgroundcolor: CSSProperties['backgroundColor'];
+  showborderbottom: string;
+  padding: CSSProperties['padding'];
+  height: CSSProperties['height'];
+}>(({
+  backgroundcolor,
+  showborderbottom,
+  padding = '10px 0px 10px 0px',
+  height = 'auto',
+}) => {
   return `
     height: ${height};
     background-color: ${backgroundcolor};
@@ -59,5 +62,5 @@ export const StyledSelect = styled(Select)<{
       height: 100%;
       align-items: center;
     }
-  `
-})
+  `;
+});

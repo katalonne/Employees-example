@@ -1,9 +1,5 @@
 import AddIcon from '@mui/icons-material/Add';
-import { 
-  Fab,
-  type SxProps, 
-  type Theme 
-} from '@mui/material';
+import { Fab, type SxProps, type Theme } from '@mui/material';
 
 interface ButtonProps {
   text: string; // A string type for the text
@@ -14,29 +10,29 @@ interface ButtonProps {
 export const Button: React.FC<ButtonProps> = ({
   text = '',
   sx = {},
-  onClick = () => {}
+  onClick = () => {},
 }) => {
   return (
-    <Fab 
+    <Fab
       onClick={onClick}
-      color="primary"
+      color='primary'
       sx={{
         width: '200px',
-        boxShadow: 'none', 
-        borderRadius: 1, 
-        px: 2.5, 
-        gap: 0.5, 
-        // bgcolor: 'primary.light', 
+        boxShadow: 'none',
+        borderRadius: 1,
+        px: 2.5,
+        gap: 0.5,
+        // bgcolor: 'primary.light',
         // '&:hover': {
         //   bgcolor: 'primary.dark'
         // },
-        ...sx
+        ...sx,
       }}
-      variant="extended" size="medium" 
+      variant='extended'
+      size='medium'
     >
       {text}
       <AddIcon />
     </Fab>
-    
-  )
-}
+  );
+};

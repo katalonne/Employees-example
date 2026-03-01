@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material/styles'
+import { createTheme } from '@mui/material/styles';
 
 export const theme = createTheme({
   palette: {
@@ -47,7 +47,8 @@ export const theme = createTheme({
         disableElevation: true, // Disable elevation for all Buttons by default
       },
     },
-    MuiInput: { // standard variant uses MuiInput
+    MuiInput: {
+      // standard variant uses MuiInput
       styleOverrides: {
         root: ({ theme }) => ({
           '&:after': {
@@ -55,7 +56,6 @@ export const theme = createTheme({
           },
         }),
       },
-      
     },
     MuiInputLabel: {
       styleOverrides: {
@@ -66,7 +66,7 @@ export const theme = createTheme({
         }),
       },
     },
-    // You can do the same for other components that support this prop, 
+    // You can do the same for other components that support this prop,
     // for example, MuiAppBar or MuiPaper if they are using it
   },
-})
+});

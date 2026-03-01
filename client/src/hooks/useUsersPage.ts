@@ -20,36 +20,40 @@ export function useUsersPage() {
     selectedStatus: 'All',
   });
 
-  const { isDialogOpen, searchValue, debouncedSearchValue, selectedStatus } = state;
+  const { isDialogOpen, searchValue, debouncedSearchValue, selectedStatus } =
+    state;
 
   const handleDialogOpen = useCallback(() => {
-    setState(prev => ({ ...prev, isDialogOpen: true }));
+    setState((prev) => ({ ...prev, isDialogOpen: true }));
   }, []);
 
   const handleDialogClose = useCallback(() => {
-    setState(prev => ({ ...prev, isDialogOpen: false }));
+    setState((prev) => ({ ...prev, isDialogOpen: false }));
   }, []);
 
   const handleSearchChange = useCallback((value: string) => {
-    setState(prev => ({ ...prev, searchValue: value }));
+    setState((prev) => ({ ...prev, searchValue: value }));
   }, []);
 
   useDebouncedEffect(
     () => {
-      setState(prev => ({ ...prev, debouncedSearchValue: prev.searchValue }));
+      setState((prev) => ({ ...prev, debouncedSearchValue: prev.searchValue }));
     },
     300,
-    [searchValue]
+    [searchValue],
   );
 
-  const handleStatusChange = useCallback((userId: number, newStatus: string | number) => {
-    updateUserStatus(userId, String(newStatus)).catch(err => {
-      console.error('Update failed', err);
-    });
-  }, [updateUserStatus]);
+  const handleStatusChange = useCallback(
+    (userId: number, newStatus: string | number) => {
+      updateUserStatus(userId, String(newStatus)).catch((err) => {
+        console.error('Update failed', err);
+      });
+    },
+    [updateUserStatus],
+  );
 
   const handleStatusFilterChange = useCallback((value: string | number) => {
-    setState(prev => ({ ...prev, selectedStatus: String(value) }));
+    setState((prev) => ({ ...prev, selectedStatus: String(value) }));
   }, []);
 
   const filteredUsers = useMemo<User[]>(() => {

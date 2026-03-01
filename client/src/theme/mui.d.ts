@@ -1,18 +1,18 @@
-import '@mui/material/styles'
-import '@mui/material/AppBar'
+import '@mui/material/styles';
+import '@mui/material/AppBar';
 
 declare module '@mui/material/AppBar' {
   interface AppBarPropsColorOverrides {
-    white: true
+    white: true;
   }
 }
 
 declare module '@mui/material/styles' {
   interface Palette {
-    white: Palette['primary']
+    white: Palette['primary'];
   }
 
   interface PaletteOptions {
-    white?: PaletteOptions['primary']
+    white?: PaletteOptions['primary'];
   }
 }
