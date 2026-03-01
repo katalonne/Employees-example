@@ -1,5 +1,10 @@
 # Notes
 
+## How to run
+
+- `cd backend && node index.js`
+- go to `localhost:3001`
+
 ## Quick Links
 
 - **Random faces API:** https://100k-faces.vercel.app/api/random-image
