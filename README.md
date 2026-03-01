@@ -2,7 +2,7 @@
 
 ## How to run
 
-- `cd backend && node index.js`
+- `cd backend && npm i && node index.js`
 - go to `localhost:3001`
 
 ## Quick Links
