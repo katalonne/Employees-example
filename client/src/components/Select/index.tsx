@@ -1,6 +1,7 @@
 import { useCallback, useState, useEffect, type CSSProperties } from 'react';
-import { MenuItem, FormControl, type SelectProps } from '@mui/material';
+import { MenuItem, FormControl, type SelectProps, type FormControlProps } from '@mui/material';
 import { StyledCircle, StyledSelect } from './styles';
+import { type Status } from '../../constants';
 
 interface CustomSelectProps {
   emptyValue?: string; // Optional string for the empty value text
@@ -30,7 +31,10 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
   const [state, setState] = useState({
     selectValue: value,
   });
+
+  // this effect is used when reverting to prev value, when api returned an error
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setState((state) => ({ ...state, selectValue: value }));
   }, [value]);
 
@@ -41,11 +45,11 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
       setState((state) => ({ ...state, selectValue }));
       onSelect(selectValue);
     },
-    [selectValue],
+    [onSelect],
   );
 
   return (
-    <FormControl variant={variant as any} sx={{ minWidth: 120, width: width }}>
+    <FormControl variant={variant as FormControlProps['variant']} sx={{ minWidth: 120, width: width }}>
       <StyledSelect
         height={height}
         padding={padding}
@@ -54,10 +58,11 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
         displayEmpty
         value={selectValue}
         onChange={(e) => handleSelectChange(e.target.value as string)}
+        /* eslint-disable @typescript-eslint/no-explicit-any */
         renderValue={(value: any) => {
           return value ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <StyledCircle value={value}></StyledCircle>
+              <StyledCircle value={value as Status}></StyledCircle>
               {value}
             </div>
           ) : (

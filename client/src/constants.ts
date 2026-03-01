@@ -1,6 +1,7 @@
 import { theme } from './theme';
 
 export const STATUSES = ['Working', 'On Vacation', 'Business Trip'];
+export type Status = 'Working' | 'On Vacation' | 'Business Trip';
 
 export const selectValueToColorMap = {
   Working: theme.palette.success.light,

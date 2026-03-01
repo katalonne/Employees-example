@@ -2,12 +2,11 @@ import { type CSSProperties } from 'react';
 import { Select, outlinedInputClasses, selectClasses } from '@mui/material';
 import styled from '@emotion/styled';
 import { type Theme } from '@mui/material/styles';
-import { selectValueToColorMap } from '../../constants';
+import { selectValueToColorMap, type Status } from '../../constants';
 
-type CircleValueProp = 'Working' | 'On Vacation' | 'Business Trip';
 export const StyledCircle = styled('div')<{
   theme?: Theme;
-  value: CircleValueProp;
+  value: Status;
 }>(({ theme, value }) => {
   const circleColor =
     selectValueToColorMap[value] || theme.palette.success.main;

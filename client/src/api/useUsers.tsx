@@ -12,8 +12,6 @@ export type User = {
 
 const USERS_URL = 'http://localhost:3001/users';
 
-// ... existing code ...
-
 export const useUsers = () => {
   const { data, error, isLoading } = useSWR<User[]>(USERS_URL, fetcher, {
     revalidateOnFocus: false,
