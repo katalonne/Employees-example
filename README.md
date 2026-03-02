@@ -60,3 +60,7 @@ manualChunks(id) {
   }
 }
 ```
+
+## TO DO
+
+- Virtualization for the list with `react-window`
