@@ -1,9 +1,13 @@
 # Notes
 
-## How to run
+## How to run backend serving the frontend artifacts
 
 - `cd backend && npm i && node index.js`
 - go to `localhost:3001`
+
+## How to run frontend
+
+- `cd frontend && cp .env.example .env && npm i && npm run dev`
 
 ## Quick Links
 
