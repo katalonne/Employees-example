@@ -7,7 +7,7 @@
 
 ## How to run frontend
 
-- `cd frontend && cp .env.example .env && npm i && npm run dev`
+- `cd client && cp .env.example .env && npm i && npm run dev`
 
 ## Quick Links
 
