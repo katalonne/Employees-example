@@ -44,10 +44,13 @@ It provides a great CSS-in-JS developer experience for dynamic, prop/state-drive
 - Using the **canary** version of `eslint-plugin-react-hooks` because the latest stable version does not declare ESLint 10 in `peerDependencies`.
 
 ## Code splitting in Vite
-```js
+```javascript
 manualChunks(id) {
   if (id.includes('node_modules')) {
     return 'vendor';
+  }
+  if (id.includes('/src/components/FormDialog.tsx')) {
+    return 'form-dialog';
   }
   if (
     id.includes('/src/components/') ||
@@ -55,5 +58,5 @@ manualChunks(id) {
   ) {
     return 'ui';
   }
-},
+}
 ``
