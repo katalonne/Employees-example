@@ -1,4 +1,4 @@
-import { type CSSProperties } from 'react';
+import { type CSSProperties, memo } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import { StyledSearchInput } from './styles';
 
@@ -10,7 +10,7 @@ interface SearchInputProps {
   onChange?: (value: string) => void;
 }
 
-export const SearchInput: React.FC<SearchInputProps> = ({
+export const SearchInput: React.FC<SearchInputProps> = memo(({
   placeholder = 'Type to search',
   height = '40px',
   width = 'auto',
@@ -27,4 +27,4 @@ export const SearchInput: React.FC<SearchInputProps> = ({
       startAdornment={<SearchIcon />}
     />
   );
-};
+});

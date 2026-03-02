@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,7 +10,7 @@ interface NavbarProps {
   logoutText: string; // Text for the logout button or link
 }
 
-export const Navbar: React.FC<NavbarProps> = ({
+export const Navbar: React.FC<NavbarProps> = memo(({
   logoText = '',
   logoutText = '',
 }) => {
@@ -39,4 +40,4 @@ export const Navbar: React.FC<NavbarProps> = ({
       </AppBar>
     </Box>
   );
-};
+});

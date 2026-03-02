@@ -1,18 +1,20 @@
+import { useMemo, memo } from 'react';
 import Stack from '@mui/material/Stack';
 import { Button, SearchInput, CustomSelect } from '../components';
+import { type Status, type StatusFilterOption } from '../constants';
 
 interface CreateSearchFilterBlockProps {
   onCreateClick?: React.MouseEventHandler<HTMLButtonElement>; // Optional, specific to button clicks
   searchValue?: string;
   onSearchChange?: (value: string) => void;
-  statuses: Array<string>;
+  statuses: readonly Status[]; 
   selectedStatus?: string;
   onStatusFilterChange?: (value: string | number) => void;
 }
 
 export const CreateSearchFilterBlock: React.FC<
   CreateSearchFilterBlockProps
-> = ({
+> = memo(({
   onCreateClick = () => {},
   searchValue = '',
   onSearchChange = () => {},
@@ -20,6 +22,11 @@ export const CreateSearchFilterBlock: React.FC<
   selectedStatus = 'All',
   onStatusFilterChange = () => {},
 }) => {
+  const statusOptions = useMemo<readonly StatusFilterOption[]>(
+    () => ['All', ...statuses],
+    [statuses],
+  );
+
   return (
     <Stack direction='row' spacing={2} sx={{ height: 60 }}>
       <Button text='Create' sx={{ height: '100%' }} onClick={onCreateClick} />
@@ -37,11 +44,11 @@ export const CreateSearchFilterBlock: React.FC<
           backgroundColor='#fff'
           showBorderBottom={false}
           padding={'10px 0px 10px 25px'}
-          options={['All'].concat(statuses)}
+          options={statusOptions}
           value={selectedStatus}
           onSelect={onStatusFilterChange}
         />
       </Stack>
     </Stack>
   );
-};
+});

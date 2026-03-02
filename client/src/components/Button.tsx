@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import { Fab, type SxProps, type Theme } from '@mui/material';
 
@@ -7,7 +8,7 @@ interface ButtonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>; // Optional click event handler
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = memo(({
   text = '',
   sx = {},
   onClick = () => {},
@@ -22,10 +23,6 @@ export const Button: React.FC<ButtonProps> = ({
         borderRadius: 1,
         px: 2.5,
         gap: 0.5,
-        // bgcolor: 'primary.light',
-        // '&:hover': {
-        //   bgcolor: 'primary.dark'
-        // },
         ...sx,
       }}
       variant='extended'
@@ -35,4 +32,4 @@ export const Button: React.FC<ButtonProps> = ({
       <AddIcon />
     </Fab>
   );
-};
+});

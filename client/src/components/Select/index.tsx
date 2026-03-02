@@ -1,7 +1,7 @@
 import { useCallback, useState, useEffect, type CSSProperties } from 'react';
 import { MenuItem, FormControl, type SelectProps, type FormControlProps } from '@mui/material';
 import { StyledCircle, StyledSelect } from './styles';
-import { type Status } from '../../constants';
+import { type Status, type StatusFilterOption } from '../../constants';
 
 interface CustomSelectProps {
   emptyValue?: string; // Optional string for the empty value text
@@ -12,7 +12,7 @@ interface CustomSelectProps {
   height?: CSSProperties['height']; // Optional string for height
   width?: CSSProperties['width']; // Optional string for width
   variant?: SelectProps['variant']; // Optional string for variant
-  options?: Array<string>;
+  options?: readonly StatusFilterOption[];
   onSelect?: (selectValue: string | number) => void;
 }
 

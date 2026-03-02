@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import styled from '@emotion/styled';
 import { CustomSelect } from './Select';
 import { type Theme } from '@mui/material/styles';
+import { type Status } from '../constants';
 
 const StyledPersonCard = styled(Card)<{ theme?: Theme }>(({ theme }) => {
   return `
@@ -23,7 +24,7 @@ interface PersonCardProps {
   status: string; // Status of the person
   imgUrl: string;
   imgAlt: string;
-  statuses: string[];
+  statuses: readonly Status[];
   onStatusChange?: (userId: number, selectValue: string | number) => void;
 }
 

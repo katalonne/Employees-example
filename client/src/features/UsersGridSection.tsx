@@ -2,12 +2,13 @@ import { memo } from 'react';
 import { Alert, Grid, Skeleton, Stack } from '@mui/material';
 import { PersonCard } from '../components';
 import type { User } from '../api/useUsers';
+import { type Status } from '../constants';
 
 interface UsersGridSectionProps {
   users: User[];
   isLoading: boolean;
   isError?: Error;
-  statuses: string[];
+  statuses: readonly Status[];
   onStatusChange: (userId: number, newStatus: string | number) => void;
 }
 

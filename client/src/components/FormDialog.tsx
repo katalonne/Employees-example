@@ -8,12 +8,13 @@ import DialogTitle from '@mui/material/DialogTitle';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
+import MenuItem from '@mui/material/MenuItem'
+import { type Status } from '../constants';
 
 interface FormDialogProps {
   open: boolean; // Boolean to control the open state of the dialog
   onClose: React.MouseEventHandler<HTMLButtonElement>; // Function to handle closing, specific to button clicks
-  statuses: Array<string>;
+  statuses: readonly Status[]; 
 }
 
 export const FormDialog: React.FC<FormDialogProps> = ({
