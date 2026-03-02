@@ -2,6 +2,7 @@ import useSWR from 'swr';
 import useSWRMutation from 'swr/mutation';
 import { useSWRConfig } from 'swr';
 import { fetcher } from './fetcher';
+import { API_URL } from '../constants';
 
 export type User = {
   id: number;
@@ -10,7 +11,7 @@ export type User = {
   img?: string;
 };
 
-const USERS_URL = 'http://localhost:3001/users';
+const USERS_URL = `${API_URL}/users`;
 
 export const useUsers = () => {
   const { data, error, isLoading } = useSWR<User[]>(USERS_URL, fetcher, {
