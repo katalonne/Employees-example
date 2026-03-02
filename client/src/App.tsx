@@ -1,10 +1,17 @@
+import { Suspense, lazy } from 'react';
 import { Container, CssBaseline, ThemeProvider } from '@mui/material';
 import { ErrorBoundary } from 'react-error-boundary';
-import { Navbar, FormDialog, ErrorFallback } from './components';
+import { Navbar, ErrorFallback } from './components';
 import { CreateSearchFilterBlock, UsersGridSection } from './features';
 import { theme } from './theme';
 import { STATUSES } from './constants';
 import { useUsersPage } from './hooks/useUsersPage';
+
+const LazyFormDialog = lazy(() =>
+  import('./components/FormDialog').then((module) => ({
+    default: module.FormDialog,
+  })),
+);
 
 function App() {
   const {
@@ -32,11 +39,15 @@ function App() {
             maxWidth={false}
           >
             <Container disableGutters>
-              <FormDialog
-                open={isDialogOpen}
-                onClose={handleDialogClose}
-                statuses={STATUSES}
-              />
+              <Suspense fallback={null}>
+                {isDialogOpen && (
+                  <LazyFormDialog
+                    open={isDialogOpen}
+                    onClose={handleDialogClose}
+                    statuses={STATUSES}
+                  />
+                )}
+              </Suspense>
               <CreateSearchFilterBlock
                 onCreateClick={handleDialogOpen}
                 searchValue={searchValue}

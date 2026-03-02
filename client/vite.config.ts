@@ -21,6 +21,9 @@ export default defineConfig({
           if (id.includes('node_modules')) {
             return 'vendor';
           }
+          if (id.includes('/src/components/FormDialog.tsx')) {
+            return 'form-dialog';
+          }
           if (
             id.includes('/src/components/') ||
             id.includes('/src/features/')
@@ -28,6 +31,7 @@ export default defineConfig({
             return 'ui';
           }
         },
+        
       },
     },
   },
